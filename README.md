@@ -1,10 +1,10 @@
-# mark.esman unit - HIGH-SPEED 5x SINGLE MESSAGES (5 SEPARATE POSTS) + CUSTOM FOOTER LINK
-# Date: April 12, 2025
-# Status: 100% OPERATIONAL - MAX SPEED, MAX SAFETY
-# Token: MTQzODUzMzE0NTg2MjQ3NTkyOA.GDO-0k.o59yBKXKhsnfct7qs-5cAsRZNKGkdxSnF1KlHo
-# Features:
-#   - Sends **5 embeds as 5 separate webhook messages** (not 1 batch)
-#   - Footer: "ZX Hub / https://discord.gg/7umqMPbnfX"
+mark.esman unit - HIGH-SPEED 5x SINGLE MESSAGES (5 SEPARATE POSTS) + CUSTOM FOOTER LINK
+Date: April 12, 2025
+Status: 100% OPERATIONAL - MAX SPEED, MAX SAFETY
+ Token: MTQzODUzMzE0NTg2MjQ3NTkyOA.GDO-0k.o59yBKXKhsnfct7qs-5cAsRZNKGkdxSnF1KlHo
+ Features:
+  - Sends **5 embeds as 5 separate webhook messages** (not 1 batch)
+   - Footer: "ZX Hub / https://discord.gg/7umqMPbnfX"
 #   - 4.0–6.0s delay between each message
 #   - Full ratelimit compliance + retry
 #   - UA + Super-Props rotation
@@ -109,7 +109,7 @@ async def send_five_separate(session: aiohttp.ClientSession, embeds: List[Dict[s
         print(f"[BATCH] Sending #{i+1}/5")
         await forward_single(session, embed)
 
-# === FETCH WITH RETRY ===
+ === FETCH WITH RETRY ===
 async def fetch_with_retry(session: aiohttp.ClientSession, url: str) -> Optional[List[Dict]]:
     for attempt in range(5):
         try:
@@ -126,7 +126,7 @@ async def fetch_with_retry(session: aiohttp.ClientSession, url: str) -> Optional
         await asyncio.sleep(random.uniform(3, 6))
     return None
 
-# === FETCH HISTORY ===
+ === FETCH HISTORY ===
 async def fetch_history(session: aiohttp.ClientSession, limit: int) -> List[Dict]:
     url = f"https://discord.com/api/v9/channels/{CHANNEL_ID}/messages?limit={limit}"
     return await fetch_with_retry(session, url) or []
